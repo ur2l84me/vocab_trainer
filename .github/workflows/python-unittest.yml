@@ -35,4 +35,3 @@ jobs:
     - name: Test with unittest
       run: |
         python -m unittest /test/test*.py
-© 2021 GitHub, Inc.
