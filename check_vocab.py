@@ -6,7 +6,7 @@ class check_vocab:
         if path is None: 
             if lang == 'test':
                 self.voc_path = './test/test_csv_check_vocab.csv'
-            elif lang = 'spanisch': 
+            elif lang == 'spanisch': 
                 self.voc_path = 'input_spanisch.csv'
             else:
                 raise ValueError('No Specified csv')
