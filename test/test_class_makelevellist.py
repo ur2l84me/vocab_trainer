@@ -2,6 +2,8 @@
 import unittest
 import copy
 import os.path
+
+from numpy import asscalar, e
 import MakeLevelVocab as Test_Vocab
 import pandas as pd
 from pandas.testing import assert_frame_equal
@@ -44,6 +46,24 @@ class Test_MakeLevelVocab(unittest.TestCase):
         vocTest = Test_Vocab.MakeLevelVocab(path=self.test_path)
         assert vocTest.path == self.test_path
         assert len(vocTest.base_data.columns) == 3
+
+    def test_genertate_level_df(self):
+        d = {'id': [1, 2],
+             'german': ['h', 'a'],
+             'other': ['1', '2']}
+        test_pd_base = pd.DataFrame(data=d)
+        c = [None, None]
+
+        d['level1'] = c
+        d['level2'] = c
+        d['level3'] = c
+        d['level4'] = c
+        d['level5'] = c
+
+        exp_pd_base = pd. DataFrame(data=d)
+        vocTest = Test_Vocab.MakeLevelVocab(pd_base=self.test_pd_base)
+        vocTest._generate_level_df()
+        assert_frame_equal(exp_pd_base, vocTest.base_data)
 
 
 if __name__ == '__main__':
