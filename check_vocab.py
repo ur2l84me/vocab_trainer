@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 class check_vocab:
 
     def __init__(self, lang='test', path=None):
@@ -11,9 +12,8 @@ class check_vocab:
             else:
                 raise ValueError('No Specified csv')
         else:
-            self.voc_path  = path
+            self.voc_path = path
         self.raw_data = self._load_raw_data()
-
 
     def _load_raw_data(self):
         df = pd.read_csv(self.voc_path, sep=',')
@@ -25,10 +25,10 @@ class check_vocab:
     def _drop_duplicates(self):
         self.raw_data = self.raw_data.drop_duplicates(['german', 'other'])
 
-    def _save_new_file(self, filename = None):
+    def _save_new_file(self, filename=None):
         if filename is None:
             filename = 'modified_' + self.voc_path
-        self.raw_data.to_csv(filename, sep = ',')
+        self.raw_data.to_csv(filename, sep=',')
 
     def _set_id(self):
         self.raw_data['id'] = self.raw_data.index
@@ -37,6 +37,3 @@ class check_vocab:
         self._drop_duplicates()
         self._set_id()
         self._save_new_file()
-
-
-#check_vocab()._no_duplicated_vocab()

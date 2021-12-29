@@ -21,3 +21,5 @@ jobs:
     - name: Analysing the code with Pycodestyle
       run: |
         pycodestyle --show-source --show-pep8 *.py 
+        pycodestyle --statistics -qq  *.py --count 
+        
