@@ -15,11 +15,10 @@ class Test_MakeLevelVocab(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         super(Test_MakeLevelVocab, self).__init__(*args, **kwargs)
         self.test_path = './test/test_csv_check_vocab.csv'
-        self.d = {'id': [1,2],
-            'german': ['h', 'a'],
-            'other' : ['1','2']}
+        self.d = {'id': [1, 2],
+                  'german': ['h', 'a'],
+                  'other': ['1', '2']}
         self.test_pd_base = pd.DataFrame(data=self.d)
-
 
     def test_init_args_pd_base(self):
         # This should work fine
@@ -28,7 +27,7 @@ class Test_MakeLevelVocab(unittest.TestCase):
 
         # This should thow an Exception
         test_pd_d = copy.deepcopy(self.d)
-        test_pd_d['col4'] = ['hh','hh']
+        test_pd_d['col4'] = ['hh', 'hh']
         test_pd = pd.DataFrame(data=test_pd_d)
         with self.assertRaises(IndexError):
             Test_Vocab.MakeLevelVocab(pd_base=test_pd)
@@ -70,23 +69,22 @@ class Test_MakeLevelVocab(unittest.TestCase):
 
         # Instanziate Class
         vocTest = Test_Vocab.MakeLevelVocab(pd_base=self.test_pd_base)
-        e= {'id': [1, 2,3],
-             'german': ['h', 'a','ää'],
-             'other': ['1', '2','55-ä']}
+        e = {'id': [1, 2, 3],
+             'german': ['h', 'a', 'ää'],
+             'other': ['1', '2', '55-ä']}
         vocTest.base_data = pd.DataFrame(data=e)
         vocTest._generate_level_df()
 
-        exp_df=pd.DataFrame({'german': ['ää'],
-                            'other' : ['55-ä']})
+        exp_df = pd.DataFrame({'german': ['ää'],
+                               'other': ['55-ä']})
 
         res = vocTest._get_new_data()
         assert_frame_equal(res.reset_index(drop=True), exp_df.reset_index(drop=True))
 
-
     def test_make_vocab_list(self):
         # 1. Test nur Base data
         path = './test/test_only_base_data.csv'
-        out_path ='./test/test_only_base_data_level.csv'
+        out_path = './test/test_only_base_data_level.csv'
         exp_path = './test/test_only_base_data_result.csv'
 
         vocTest = Test_Vocab.MakeLevelVocab(path=path)
@@ -95,24 +93,19 @@ class Test_MakeLevelVocab(unittest.TestCase):
         exp = pd.read_csv(exp_path, sep=',')
 
         assert_frame_equal(res, exp, check_dtype=False)
-        print('h')
-
         os.remove(out_path)
 
         # 2. Test Base Data and existing Data
         path = './test/test_exist_data.csv'
-        #exi_path = './test/test_exist_data.csv'
-
         out_path = './test/test_exist_data_level.csv'
         exp_path = './test/test_exist_data_result.csv'
-
-
         vocTest2 = Test_Vocab.MakeLevelVocab(path=path)
         vocTest2.make_vocab_level_list()
         res = pd.read_csv(out_path, sep=',')
         exp = pd.read_csv(exp_path, sep=',')
 
         assert_frame_equal(res, exp,  check_dtype=False)
+
 
 if __name__ == '__main__':
     unittest.main()

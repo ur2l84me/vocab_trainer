@@ -12,6 +12,8 @@ from pandas.core.indexes.period import period_range
       transfered into our training csv
     - if generates/ updates the corresponding "language switches" file
 '''
+
+
 class MakeLevelVocab():
     def __init__(self, path=None, pd_base=None, levelarray=None):
         if levelarray is None:
@@ -24,7 +26,7 @@ class MakeLevelVocab():
         elif path is not None:
             self.path = path
             self.base_data = self._read_base_data()
-            self.outpath = path[:len(path) - 4] +'_level.csv'
+            self.outpath = path[:len(path) - 4] + '_level.csv'
         elif pd_base is not None:
             self._validate_pd_base(pd_base)
             self.base_data = pd_base
@@ -85,7 +87,6 @@ class MakeLevelVocab():
             self._save_data()
         print('h')
 
-
     def _get_new_data(self):
         '''
         Checks if we have new Vocabulary that is not yet in our
@@ -93,6 +94,6 @@ class MakeLevelVocab():
         '''
         TableA = self.data[['german', 'other']]
         TableB = self.base_data[['german', 'other']]
-        outer_join = TableA.merge(TableB, how = 'outer', indicator = True)
-        anti_join = outer_join[~(outer_join._merge == 'both')].drop('_merge', axis = 1)
+        outer_join = TableA.merge(TableB, how='outer', indicator=True)
+        anti_join = outer_join[~(outer_join._merge == 'both')].drop('_merge', axis=1)
         return anti_join
