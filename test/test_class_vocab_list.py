@@ -13,7 +13,7 @@ class Test_check_vocab(unittest.TestCase):
         vocTest = Test_Vocab.check_vocab()
         assert vocTest.voc_path == self.test_path
 
-        assert Test_Vocab.check_vocab(path=self.test_path).voc_path = self.test_path
+        assert Test_Vocab.check_vocab(path=self.test_path).voc_path == self.test_path
 
         with self.assertRaises(ValueError):
             Test_Vocab.check_vocab(lang='notinTest')

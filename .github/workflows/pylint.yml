@@ -20,6 +20,6 @@ jobs:
         pip install -r requirements.txt
     - name: Analysing the code with Pycodestyle
       run: |
-        pycodestyle --show-source --show-pep8 *.py 
-        pycodestyle --statistics -qq  *.py --count 
+        pycodestyle --show-source --max-line-length=85 *.py 
+        pycodestyle --max-line-length=85  --statistics -qq  *.py --count 
         
