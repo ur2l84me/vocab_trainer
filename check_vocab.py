@@ -2,7 +2,7 @@ import pandas as pd
 
 class check_vocab:
 
-    def __init__(self, lang = 'test', path = None):
+    def __init__(self, lang='test', path=None):
         if path is None:
             if lang == 'test':
                 self.voc_path = './test/test_csv_check_vocab.csv'
