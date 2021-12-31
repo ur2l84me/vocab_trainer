@@ -6,7 +6,7 @@ from pandas.core.indexes.period import period_range
 
 '''
     This class has the following responsibilities:
-    - if there is no csv yet with the needed columnsfor the Vocab level,
+    - if there is no csv yet with the needed columns for the Vocab level,
       it generates it
     - it checks if new vocal in the base csv was added and needs to be
       transfered into our training csv
@@ -27,6 +27,7 @@ class MakeLevelVocab():
             self.path = path
             self.base_data = self._read_base_data()
             self.outpath = path[:len(path) - 4] + '_level.csv'
+            self.outpath_switch = path[:len(path) - 4] + '_level_switch.csv'
         elif pd_base is not None:
             self._validate_pd_base(pd_base)
             self.base_data = pd_base
@@ -59,8 +60,10 @@ class MakeLevelVocab():
     def _check_if_output_file_exists(self):
         return os.path.exists(self.outpath)
 
-    def _read_existing_data(self):
-        return pd.read_csv(self.outpath, sep=',')
+    def _read_existing_data(self, path=None):
+        if path is None:
+            path = self.outpath
+        return pd.read_csv(path, sep=',')
 
     def _generate_level_df(self):
         cnt_vocab = len(self.data.index)
@@ -68,24 +71,27 @@ class MakeLevelVocab():
         for i in self.cols:
             self.data[i] = c
 
-    def _save_data(self, path=None):
+    def _save_data(self, df, path=None):
         if path is None:
             path = self.outpath
         print('Data saved to: ' + path)
-        self.data[self.cols] = self.data[self.cols].apply(pd.to_datetime)
-        self.data['id'] = self.data.index
-        self.data.to_csv(path, sep=',', index=False)
+        df[self.cols] = df[self.cols].apply(pd.to_datetime)
+        df['id'] = df.index
+        df.to_csv(path, sep=',', index=False)
 
     def make_vocab_level_list(self):
         if self.first_run:
             self._generate_level_df()
-            self._save_data()
+            self._save_data(df=self.data, path=self.outpath)
+            self._save_data(df=self.data, path=self.outpath_switch)
         else:
             self.data = self._read_existing_data()
+            self.data_switch = self._read_existing_data(path=self.outpath_switch)
             res = self._get_new_data()
             self.data = pd.concat([self.data, res])
-            self._save_data()
-        print('h')
+            self.data_switch = pd.concat([self.data_switch, res])
+            self._save_data(df=self.data, path=self.outpath)
+            self._save_data(df=self.data_switch, path=self.outpath_switch)
 
     def _get_new_data(self):
         '''

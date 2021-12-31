@@ -3,6 +3,8 @@ import unittest
 import copy
 import os.path
 import os
+import shutil
+import sys  
 
 from numpy import asscalar, e
 import MakeLevelVocab as Test_Vocab
@@ -92,19 +94,51 @@ class Test_MakeLevelVocab(unittest.TestCase):
         res = pd.read_csv(out_path, sep=',')
         exp = pd.read_csv(exp_path, sep=',')
 
-        assert_frame_equal(res, exp, check_dtype=False)
-        os.remove(out_path)
+        try:
+            assert_frame_equal(res, exp, check_dtype=False)
+        except :
+            raise AssertionError( sys.exc_info())
+        finally: 
+            os.remove(out_path)
 
         # 2. Test Base Data and existing Data
+
+        ## Test Setup 
         path = './test/test_exist_data.csv'
         out_path = './test/test_exist_data_level.csv'
+        out_path_org = './test/org_test_exist_data_level.csv'
+
+        out_path_switch = './test/test_exist_data_level_switch.csv'
+        out_path_switch_org = './test/org_test_exist_data_level_switch.csv'
+
+
+        # adding exception handling
+        try:
+            shutil.copy(out_path_org, out_path)
+            shutil.copy(out_path_switch_org, out_path_switch)
+
+        except IOError as e:
+            print("Unable to copy file. %s" % e)
+        except:
+            print("Unexpected error:", sys.exc_info())
+
         exp_path = './test/test_exist_data_result.csv'
+        exp_path_switch = './test/test_exist_data_switch_result.csv'
         vocTest2 = Test_Vocab.MakeLevelVocab(path=path)
         vocTest2.make_vocab_level_list()
         res = pd.read_csv(out_path, sep=',')
         exp = pd.read_csv(exp_path, sep=',')
+        res_switch = pd.read_csv(out_path_switch, sep=',')
+        exp_switch = pd.read_csv(exp_path_switch, sep=',')
 
-        assert_frame_equal(res, exp,  check_dtype=False)
+        try:
+            assert_frame_equal(res, exp,  check_dtype=False)
+            assert_frame_equal(res_switch, exp_switch,  check_dtype=False)
+        except: 
+            raise AssertionError( sys.exc_info())
+        finally:
+            os.remove(out_path)
+            os.remove(out_path_switch)
 
 
 if __name__ == '__main__':
