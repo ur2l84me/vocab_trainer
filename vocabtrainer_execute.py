@@ -4,7 +4,7 @@ import check_vocab as CheckVocab
 import MakeLevelVocab as mlv
 from unittest.mock import patch
 import VocabTrainer as VocTrain
-import os 
+import os
 
 
 with open("config.yaml", "r") as stream:
@@ -34,7 +34,7 @@ print('h')
 
 print('You choose {}. Lets begin.'.format(options[lang]))
 
-options_ger_other = {1: 'german - {}'.format(options[lang]), 
+options_ger_other = {1: 'german - {}'.format(options[lang]),
                      2:  '{} - german'.format(options[lang])}
 
 input_text = 'Which kind would you like to train? ' + txt_int + '\n'
@@ -49,20 +49,17 @@ elif kind == 2:
 vocTrai.set_path(path)
 vocTrai.load_vocab_inital()
 voc = vocTrai._get_cnt_per_level()
-options_level_ex = voc.to_dict()['todo']# was wenn empty? TODO AK 
-options_level_ex[-1]=voc['todo'].sum()
+# was wenn empty? TODO AK
+options_level_ex = voc.to_dict()['todo']
+options_level_ex[-1] = voc['todo'].sum()
 
 
-level = vocTrai.input_handler(options=options_level_ex, 
-                     input_text=input_text, 
-                     pre_key='Level ',
-                     pre_value='Vocabulary to train:')
+level = vocTrai.input_handler(options=options_level_ex,
+                              input_text=input_text,
+                              pre_key='Level ',
+                              pre_value='Vocabulary to train:')
 
-
-
-vocTrai.train_vocab(level=level, train_col=options_ger_other[kind].split('-')[0].strip())
+vocTrai.train_vocab(level=level,
+                    train_col=options_ger_other[kind].split('-')[0].strip())
 
 print('h')
-
-
-
