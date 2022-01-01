@@ -1,7 +1,5 @@
 import unittest
-
 import VocabTrainer as VocTrain
-
 
 
 class Test_VocabTrainer(unittest.TestCase):
@@ -9,7 +7,6 @@ class Test_VocabTrainer(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         super(Test_VocabTrainer, self).__init__(*args, **kwargs)
         self.vocTrain = VocTrain.VocabTrainer()
-
 
     def test_generate_option_dic(self):
         li = ['h', 'n']

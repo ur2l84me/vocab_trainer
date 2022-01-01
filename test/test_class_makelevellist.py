@@ -1,4 +1,3 @@
-
 import unittest
 import copy
 import os.path
@@ -98,22 +97,20 @@ class Test_MakeLevelVocab(unittest.TestCase):
 
         try:
             assert_frame_equal(res, exp, check_dtype=False)
-        except :
-            raise AssertionError( sys.exc_info())
-        finally: 
+        except Exception:
+            raise AssertionError(sys.exc_info())
+        finally:
             os.remove(out_path)
 
     def test_make_vocab_list_existing_data(self):
         # 2. Test Base Data and existing Data
-
-        ## Test Setup 
+        # Test Setup
         path = './test/test_exist_data.csv'
         out_path = './test/test_exist_data_level.csv'
         out_path_org = './test/org_test_exist_data_level.csv'
 
         out_path_switch = './test/test_exist_data_level_switch.csv'
         out_path_switch_org = './test/org_test_exist_data_level_switch.csv'
-
 
         # adding exception handling
         try:
@@ -122,7 +119,7 @@ class Test_MakeLevelVocab(unittest.TestCase):
 
         except IOError as e:
             print("Unable to copy file. %s" % e)
-        except:
+        except Exception:
             print("Unexpected error:", sys.exc_info())
 
         exp_path = './test/test_exist_data_result.csv'
@@ -136,8 +133,8 @@ class Test_MakeLevelVocab(unittest.TestCase):
         try:
             assert_frame_equal(res, exp,  check_dtype=False)
             assert_frame_equal(res_switch, exp_switch,  check_dtype=False)
-        except: 
-            raise AssertionError( sys.exc_info())
+        except Exception:
+            raise AssertionError(sys.exc_info())
         finally:
             os.remove(out_path)
             os.remove(out_path_switch)

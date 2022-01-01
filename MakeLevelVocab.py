@@ -71,7 +71,11 @@ class MakeLevelVocab():
         c = [None for i in range(0, cnt_vocab)]
         for i in self.cols:
             self.data[i] = c
-        self.data[self.cols[0]] = self.data[self.cols[0]].fillna(datetime(1999, 1, 1))
+        self.__set_level_default(df=self.data)
+
+    def __set_level_default(self, df):
+        df[self.cols[0]] = (df[self.cols[0]]
+                            .fillna(datetime(1999, 1, 1)))
 
     def _save_data(self, df, path=None):
         if path is None:
@@ -84,7 +88,7 @@ class MakeLevelVocab():
     def make_vocab_level_list(self):
         if self.first_run:
             self._generate_level_df()
-            self.data_switch = self.data 
+            self.data_switch = self.data
             # self._save_data(df=self.data, path=self.outpath)
             # self._save_data(df=self.data, path=self.outpath_switch)
         else:
@@ -94,8 +98,8 @@ class MakeLevelVocab():
             self.data = pd.concat([self.data, res])
             self.data_switch = pd.concat([self.data_switch, res])
 
-        self.data[self.cols[0]] = self.data[self.cols[0]].fillna(datetime(1999, 1, 1))
-        self.data_switch[self.cols[0]] = self.data_switch[self.cols[0]].fillna(datetime(1999, 1, 1))
+        self.__set_level_default(df=self.data)
+        self.__set_level_default(df=self.data_switch)
         self._save_data(df=self.data, path=self.outpath)
         self._save_data(df=self.data_switch, path=self.outpath_switch)
 

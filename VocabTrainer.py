@@ -2,11 +2,12 @@ import pandas as pd
 from datetime import datetime
 from datetime import timedelta
 
+
 class VocabTrainer():
 
     def __init__(self,
-                number_voc=5,
-                levelarray=["level" + str(i) for i in list(range(0, 6))]):
+                 number_voc=5,
+                 levelarray=["level" + str(i) for i in list(range(0, 6))]):
         self.dict_days = {
             0: 0,
             1: 2,
@@ -35,30 +36,31 @@ class VocabTrainer():
         # Get
         # FEhlerhandling fehlt
         # Test fehlt
-        if level > 5: 
-            return False 
+        if level > 5:
+            return False
         else:
             print(self.dict_days)
             print(level)
             days = self.dict_days[level]
             return last_date + timedelta(days) <= datetime.now()
 
-
     def _load_vocab_inital(self, path=None):
         path = self.path if path is None else path
         df = pd.read_csv(path, sep=',')
-        df[self.levels] = df[self.levels].apply(pd.to_datetime) # this should be done earlier
-       # df['id'] = df.index
+        # this should be done earlier
+        df[self.levels] = df[self.levels].apply(pd.to_datetime)
         return df
 
     def _get_cnt_per_level(self):
-        return self.data[self.data['todo']][['todo','last_index']].groupby('last_index').count()
-
+        return (self.data[self.data['todo']][['todo', 'last_index']]
+                .groupby('last_index').count())
 
     def __extract_info_from_vocab(self):
-        # self.data[self.levels[0]] = self.data[self.levels[0]].fillna(datetime(1999, 1, 1))
-        self.data['last_date'] = self.data[self.levels].stack().dropna().groupby(level=[0]).max()
-        self.data['last_index'] = (self.data[self.levels].idxmax(1)).str[-1:].astype(int)
+        self.data['last_date'] = self.data[self.levels] \
+                                 .stack().dropna() \
+                                 .groupby(level=[0]).max()
+        self.data['last_index'] = (self.data[self.levels]
+                                   .idxmax(1)).str[-1:].astype(int)
         self.data['todo'] = self.data.apply(lambda x:
                                             self._get_timediff_for_level(
                                                     x['last_index'],
@@ -78,26 +80,27 @@ class VocabTrainer():
                                                       value)
         return input_text
 
-    def get_vocab(self, level=-1): 
-        if level == -1: 
+    def get_vocab(self, level=-1):
+        if level == -1:
             return self.data[self.data['todo']]
-        else: 
+        else:
             return self.data[self.data['todo'] & self.data["last_index"] == level]
 
     def __set_date(self, id):
-        curr_level = self.data[self.data['id'] == id].iloc[0]['last_index'] 
+        curr_level = self.data[self.data['id'] == id].iloc[0]['last_index']
         if curr_level > 5:
-            raise ValueError('You cant have a level higher than 5. Something is wrong')
-        else: 
-            curr_level = curr_level + 1  
+            raise ValueError('You cant have a level > 5. Something is wrong')
+        else:
+            curr_level = curr_level + 1
             curr_level_str = 'level' + str(curr_level)
             self.dataRAW.at[id, curr_level_str] = datetime.now()
             self.dataRAW.to_csv(self.path, sep=',', index=False)
 
     def __check_input(self, id, answer):
-        return (self.data[self.data['id'] == id]['other']== answer).head(1).astype('category').values[0]
+        return (self.data[self.data['id'] == id]['other'] == answer) \
+               .head(1).astype('category').values[0]
 
-    def list_vocab_to_do(self, train_col='german', level=-1): 
+    def list_vocab_to_do(self, train_col='german', level=-1):
         # vocab_to_train = list(self.get_vocab().iloc[:, 1:2])
         vocab = (self.get_vocab(level=level)[train_col]).tolist()
         id = (self.get_vocab(level=level)['id']).tolist()
@@ -115,7 +118,6 @@ class VocabTrainer():
         print('exit proceddure')
         self.dataRAW.to_csv(self.path, sep=',', index=False)
 
-
     def train_vocab(self, train_col='german', level=-1):
         self.__vocab_list = self.list_vocab_to_do(train_col=train_col, level=level)
 
@@ -123,19 +125,18 @@ class VocabTrainer():
             vocab = self.__vocab_list.pop(0)
             id = vocab[0]
             voc = vocab[1]
-            #print(self.__vocab_list)
-            text= 'what is the translation of the following vocabulary? \n' + str(voc) + '\n'
+            text = 'what is the translation of the following vocabulary? \n'  \
+                   + str(voc) + '\n'
             res = input(text)
             if self.__check_input(id, res):
                 text = 'This is correct \n \n'
                 self.__set_date(id)
-            else: 
+            else:
                 text = 'This is incorrect. We will try this one Later again. \n \n'
                 self.__vocab_list.append(vocab)
             print(text)
-            #print(self.__vocab_list)
         print('We are done. ')
-    
+
     def input_handler(self,
                       options,
                       input_text='',
