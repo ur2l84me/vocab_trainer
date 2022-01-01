@@ -1,101 +1,100 @@
-german,other
-ich,yo
-du,tú
-er,él
-sie,ella
-es,eso
-wir,nosotros
-ihr,ustedes
-sie,ellos
-was,qué
-wer,quién
-wo,dónde
-warum,por qué
-wie,cómo
-welches,cuál
-wann,cuándo
-dann,entonces
-wenn,si
-wirklich,realmente
-aber,pero
-weil,porque
-nicht,no
-dieses,este
-das,ese
-alle,todos
-oder,o
-und,y
-wissen,"saber (sé, supe, sabido)"
-denken,"pensar (pienso, pensé, pensado)"
-kommen,"venir (vengo, vine, venido)"
-legen,"poner (pongo, puse, puesto)"
-nehmen,"tomar (tomo, tomé, tomado)"
-finden,"encontrar (encuentro, encontré, encontrado)"
-zuhören,"escuchar (escucho, escuché, escuchado)"
-arbeiten,"trabajar (trabajo, trabajé, trabajado)"
-sprechen,"hablar (hablo, hablé, hablado)"
-geben,"dar (doy, di, dado)"
-mögen,"gustar (gusto, gusté, gustado)"
-helfen,"ayudar (ayudo, ayudé, ayudado)"
-lieben,"amar (amo, amé, amado)"
-telefonieren,"llamar (llamo, llamé, llamado)"
-warten,"esperar (espero, esperé, esperado)"
-0,cero
-1,uno
-2,dos
-3,tres
-4,cuatro
-5,cinco
-6,seis
-7,siete
-8,ocho
-9,nueve
-10,diez
-11,once
-12,doce
-13,trece
-14,catorce
-15,quince
-16,dieciséis
-17,diecisiete
-18,dieciocho
-19,diecinueve
-20,veinte
-neu,"nuevo (nueva, nuevos, nuevas)"
-alt,"viejo (vieja, viejos, viejas)"
-wenige,"pocos (poco, poca, pocos, pocas)"
-viele,"muchos (mucho, mucha, muchos, muchas)"
-falsch,"incorrecto (incorrecta, incorrectos, incorrectas)"
-richtig,"correcto (correcta, correctos, correctas)"
-schlecht,"malo (mala, malos, malas)"
-gut,"bueno (buena, buenos, buenas)"
-glücklich,"feliz (feliz, felices, felices)"
-kurz,"corto (corta, cortos, cortas)"
-lang,"largo (larga, largos, largas)"
-klein,"pequeño (pequeña, pequeños, pequeñas)"
-groß,"grande (grande, grandes, grandes)"
-dort,allá
-hier,aquí
-rechts,derecha
-links,izquierda
-schön,"hermoso (hermosa, hermosos, hermosas)"
-jung,"joven (joven, jóvenes, jóvenes)"
-alt,"viejo (vieja, viejos, viejas)"
-hallo,hola
-ok,vale
-natürlich,por supuesto
-tschüss,hasta luego
-auf Wiedersehen,adiós
-Entschuldigen Sie,discúlpeme
-entschuldigung,perdón
-danke,gracias
-bitte,por favor
-jetzt,ahora
-Stunde,(la) hora
-Minute,(el) minuto
-Sekunde,(el) segundo
-Tag,(el) día
-Woche,(la) semana
-Monat,(el) mes
-Jahr,(el) año
-Abend,(la) noche
+Unnamed: 0,Unnamed: 0.1,Unnamed: 0.1.1,Unnamed: 0.1.1.1,Unnamed: 0.1.1.1.1,Unnamed: 0.1.1.1.1.1,Unnamed: 0.1.1.1.1.1.1,Unnamed: 0.1.1.1.1.1.1.1,Unnamed: 0.1.1.1.1.1.1.1.1,Unnamed: 0.1.1.1.1.1.1.1.1.1,Unnamed: 0.1.1.1.1.1.1.1.1.1.1,Unnamed: 0.1.1.1.1.1.1.1.1.1.1.1,Unnamed: 0.1.1.1.1.1.1.1.1.1.1.1.1,Unnamed: 0.1.1.1.1.1.1.1.1.1.1.1.1.1,Unnamed: 0.1.1.1.1.1.1.1.1.1.1.1.1.1.1,german,other,id
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,ich,yo,0
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,du,tú,1
+2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,er,él,2
+3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,sie,ella,3
+4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,es,eso,4
+5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,wir,nosotros,5
+6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,ihr,ustedes,6
+7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,sie,ellos,7
+8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,was,qué,8
+9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,wer,quién,9
+10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,wo,dónde,10
+11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,warum,por qué,11
+12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,wie,cómo,12
+13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,welches,cuál,13
+14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,wann,cuándo,14
+15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,dann,entonces,15
+16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,wenn,si,16
+17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,wirklich,realmente,17
+18,18,18,18,18,18,18,18,18,18,18,18,18,18,18,aber,pero,18
+19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,weil,porque,19
+20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,nicht,no,20
+21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,dieses,este,21
+22,22,22,22,22,22,22,22,22,22,22,22,22,22,22,das,ese,22
+23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,alle,todos,23
+24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,oder,o,24
+25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,und,y,25
+26,26,26,26,26,26,26,26,26,26,26,26,26,26,26,wissen,"saber (sé, supe, sabido)",26
+27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,denken,"pensar (pienso, pensé, pensado)",27
+28,28,28,28,28,28,28,28,28,28,28,28,28,28,28,kommen,"venir (vengo, vine, venido)",28
+29,29,29,29,29,29,29,29,29,29,29,29,29,29,29,legen,"poner (pongo, puse, puesto)",29
+30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,nehmen,"tomar (tomo, tomé, tomado)",30
+31,31,31,31,31,31,31,31,31,31,31,31,31,31,31,finden,"encontrar (encuentro, encontré, encontrado)",31
+32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,zuhören,"escuchar (escucho, escuché, escuchado)",32
+33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,arbeiten,"trabajar (trabajo, trabajé, trabajado)",33
+34,34,34,34,34,34,34,34,34,34,34,34,34,34,34,sprechen,"hablar (hablo, hablé, hablado)",34
+35,35,35,35,35,35,35,35,35,35,35,35,35,35,35,geben,"dar (doy, di, dado)",35
+36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,mögen,"gustar (gusto, gusté, gustado)",36
+37,37,37,37,37,37,37,37,37,37,37,37,37,37,37,helfen,"ayudar (ayudo, ayudé, ayudado)",37
+38,38,38,38,38,38,38,38,38,38,38,38,38,38,38,lieben,"amar (amo, amé, amado)",38
+39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,telefonieren,"llamar (llamo, llamé, llamado)",39
+40,40,40,40,40,40,40,40,40,40,40,40,40,40,40,warten,"esperar (espero, esperé, esperado)",40
+41,41,41,41,41,41,41,41,41,41,41,41,41,41,41,0,cero,41
+42,42,42,42,42,42,42,42,42,42,42,42,42,42,42,1,uno,42
+43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,2,dos,43
+44,44,44,44,44,44,44,44,44,44,44,44,44,44,44,3,tres,44
+45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,4,cuatro,45
+46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,5,cinco,46
+47,47,47,47,47,47,47,47,47,47,47,47,47,47,47,6,seis,47
+48,48,48,48,48,48,48,48,48,48,48,48,48,48,48,7,siete,48
+49,49,49,49,49,49,49,49,49,49,49,49,49,49,49,8,ocho,49
+50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,9,nueve,50
+51,51,51,51,51,51,51,51,51,51,51,51,51,51,51,10,diez,51
+52,52,52,52,52,52,52,52,52,52,52,52,52,52,52,11,once,52
+53,53,53,53,53,53,53,53,53,53,53,53,53,53,53,12,doce,53
+54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,13,trece,54
+55,55,55,55,55,55,55,55,55,55,55,55,55,55,55,14,catorce,55
+56,56,56,56,56,56,56,56,56,56,56,56,56,56,56,15,quince,56
+57,57,57,57,57,57,57,57,57,57,57,57,57,57,57,16,dieciséis,57
+58,58,58,58,58,58,58,58,58,58,58,58,58,58,58,17,diecisiete,58
+59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,18,dieciocho,59
+60,60,60,60,60,60,60,60,60,60,60,60,60,60,60,19,diecinueve,60
+61,61,61,61,61,61,61,61,61,61,61,61,61,61,61,20,veinte,61
+62,62,62,62,62,62,62,62,62,62,62,62,62,62,62,neu,"nuevo (nueva, nuevos, nuevas)",62
+63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,alt,"viejo (vieja, viejos, viejas)",63
+64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,wenige,"pocos (poco, poca, pocos, pocas)",64
+65,65,65,65,65,65,65,65,65,65,65,65,65,65,65,viele,"muchos (mucho, mucha, muchos, muchas)",65
+66,66,66,66,66,66,66,66,66,66,66,66,66,66,66,falsch,"incorrecto (incorrecta, incorrectos, incorrectas)",66
+67,67,67,67,67,67,67,67,67,67,67,67,67,67,67,richtig,"correcto (correcta, correctos, correctas)",67
+68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,schlecht,"malo (mala, malos, malas)",68
+69,69,69,69,69,69,69,69,69,69,69,69,69,69,69,gut,"bueno (buena, buenos, buenas)",69
+70,70,70,70,70,70,70,70,70,70,70,70,70,70,70,glücklich,"feliz (feliz, felices, felices)",70
+71,71,71,71,71,71,71,71,71,71,71,71,71,71,71,kurz,"corto (corta, cortos, cortas)",71
+72,72,72,72,72,72,72,72,72,72,72,72,72,72,72,lang,"largo (larga, largos, largas)",72
+73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,klein,"pequeño (pequeña, pequeños, pequeñas)",73
+74,74,74,74,74,74,74,74,74,74,74,74,74,74,74,groß,"grande (grande, grandes, grandes)",74
+75,75,75,75,75,75,75,75,75,75,75,75,75,75,75,dort,allá,75
+76,76,76,76,76,76,76,76,76,76,76,76,76,76,76,hier,aquí,76
+77,77,77,77,77,77,77,77,77,77,77,77,77,77,77,rechts,derecha,77
+78,78,78,78,78,78,78,78,78,78,78,78,78,78,78,links,izquierda,78
+79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,schön,"hermoso (hermosa, hermosos, hermosas)",79
+80,80,80,80,80,80,80,80,80,80,80,80,80,80,80,jung,"joven (joven, jóvenes, jóvenes)",80
+81,81,81,81,81,81,81,81,81,81,81,81,81,81,82,hallo,hola,81
+82,82,82,82,82,82,82,82,82,82,82,82,82,82,83,ok,vale,82
+83,83,83,83,83,83,83,83,83,83,83,83,83,83,84,natürlich,por supuesto,83
+84,84,84,84,84,84,84,84,84,84,84,84,84,84,85,tschüss,hasta luego,84
+85,85,85,85,85,85,85,85,85,85,85,85,85,85,86,auf Wiedersehen,adiós,85
+86,86,86,86,86,86,86,86,86,86,86,86,86,86,87,Entschuldigen Sie,discúlpeme,86
+87,87,87,87,87,87,87,87,87,87,87,87,87,87,88,entschuldigung,perdón,87
+88,88,88,88,88,88,88,88,88,88,88,88,88,88,89,danke,gracias,88
+89,89,89,89,89,89,89,89,89,89,89,89,89,89,90,bitte,por favor,89
+90,90,90,90,90,90,90,90,90,90,90,90,90,90,91,jetzt,ahora,90
+91,91,91,91,91,91,91,91,91,91,91,91,91,91,92,Stunde,(la) hora,91
+92,92,92,92,92,92,92,92,92,92,92,92,92,92,93,Minute,(el) minuto,92
+93,93,93,93,93,93,93,93,93,93,93,93,93,93,94,Sekunde,(el) segundo,93
+94,94,94,94,94,94,94,94,94,94,94,94,94,94,95,Tag,(el) día,94
+95,95,95,95,95,95,95,95,95,95,95,95,95,95,96,Woche,(la) semana,95
+96,96,96,96,96,96,96,96,96,96,96,96,96,96,97,Monat,(el) mes,96
+97,97,97,97,97,97,97,97,97,97,97,97,97,97,98,Jahr,(el) año,97
+98,98,98,98,98,98,98,98,98,98,98,98,98,98,99,Abend,(la) noche,98

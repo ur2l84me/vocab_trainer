@@ -4,7 +4,9 @@ import copy
 import os.path
 import os
 import shutil
-import sys  
+import sys
+
+from datetime import datetime
 
 from numpy import asscalar, e
 import MakeLevelVocab as Test_Vocab
@@ -55,14 +57,14 @@ class Test_MakeLevelVocab(unittest.TestCase):
              'other': ['1', '2']}
         test_pd_base = pd.DataFrame(data=d)
         c = [None, None]
-
+        d['level0'] = datetime(1999, 1, 1)
         d['level1'] = c
         d['level2'] = c
         d['level3'] = c
         d['level4'] = c
         d['level5'] = c
 
-        exp_pd_base = pd. DataFrame(data=d)
+        exp_pd_base = pd.DataFrame(data=d)
         vocTest = Test_Vocab.MakeLevelVocab(pd_base=self.test_pd_base)
         vocTest._generate_level_df()
         assert_frame_equal(exp_pd_base, vocTest.data)
@@ -83,7 +85,7 @@ class Test_MakeLevelVocab(unittest.TestCase):
         res = vocTest._get_new_data()
         assert_frame_equal(res.reset_index(drop=True), exp_df.reset_index(drop=True))
 
-    def test_make_vocab_list(self):
+    def test_make_vocab_list_only_base_data(self):
         # 1. Test nur Base data
         path = './test/test_only_base_data.csv'
         out_path = './test/test_only_base_data_level.csv'
@@ -101,6 +103,7 @@ class Test_MakeLevelVocab(unittest.TestCase):
         finally: 
             os.remove(out_path)
 
+    def test_make_vocab_list_existing_data(self):
         # 2. Test Base Data and existing Data
 
         ## Test Setup 
@@ -130,7 +133,6 @@ class Test_MakeLevelVocab(unittest.TestCase):
         exp = pd.read_csv(exp_path, sep=',')
         res_switch = pd.read_csv(out_path_switch, sep=',')
         exp_switch = pd.read_csv(exp_path_switch, sep=',')
-
         try:
             assert_frame_equal(res, exp,  check_dtype=False)
             assert_frame_equal(res_switch, exp_switch,  check_dtype=False)

@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import os.path
 from pandas.core.indexes.period import period_range
+from datetime import datetime
 
 '''
     This class has the following responsibilities:
@@ -17,7 +18,7 @@ from pandas.core.indexes.period import period_range
 class MakeLevelVocab():
     def __init__(self, path=None, pd_base=None, levelarray=None):
         if levelarray is None:
-            b = list(range(1, 6))
+            b = list(range(0, 6))
             self.cols = ["level" + str(i) for i in b]
         else:
             self.cols = levelarray
@@ -70,6 +71,7 @@ class MakeLevelVocab():
         c = [None for i in range(0, cnt_vocab)]
         for i in self.cols:
             self.data[i] = c
+        self.data[self.cols[0]] = self.data[self.cols[0]].fillna(datetime(1999, 1, 1))
 
     def _save_data(self, df, path=None):
         if path is None:
@@ -82,16 +84,20 @@ class MakeLevelVocab():
     def make_vocab_level_list(self):
         if self.first_run:
             self._generate_level_df()
-            self._save_data(df=self.data, path=self.outpath)
-            self._save_data(df=self.data, path=self.outpath_switch)
+            self.data_switch = self.data 
+            # self._save_data(df=self.data, path=self.outpath)
+            # self._save_data(df=self.data, path=self.outpath_switch)
         else:
             self.data = self._read_existing_data()
             self.data_switch = self._read_existing_data(path=self.outpath_switch)
             res = self._get_new_data()
             self.data = pd.concat([self.data, res])
             self.data_switch = pd.concat([self.data_switch, res])
-            self._save_data(df=self.data, path=self.outpath)
-            self._save_data(df=self.data_switch, path=self.outpath_switch)
+
+        self.data[self.cols[0]] = self.data[self.cols[0]].fillna(datetime(1999, 1, 1))
+        self.data_switch[self.cols[0]] = self.data_switch[self.cols[0]].fillna(datetime(1999, 1, 1))
+        self._save_data(df=self.data, path=self.outpath)
+        self._save_data(df=self.data_switch, path=self.outpath_switch)
 
     def _get_new_data(self):
         '''

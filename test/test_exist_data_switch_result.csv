@@ -1,6 +1,6 @@
-id,german,other,level1,level2,level3,level4,level5
-0,hallo,hello,2019-05-05,,,,
-1,mein,my,2019-08-08,,,,
-2,land,country,,,,,
-3,liebe,love,,,,,
-4,hass,hate,,,,,
+id,german,other,level0,level1,level2,level3,level4,level5
+0,hallo,hello,1999-01-01,2019-05-05,,,,
+1,mein,my,1999-01-01,2019-08-08,,,,
+2,land,country,1999-01-01,,,,,
+3,liebe,love,1999-01-01,,,,,
+4,hass,hate,1999-01-01,,,,,

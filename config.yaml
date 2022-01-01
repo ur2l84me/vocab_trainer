@@ -1,0 +1,6 @@
+spanisch:
+  path: input_spanisch.csv
+
+english:
+  path: test-vocab-csv.csv
+

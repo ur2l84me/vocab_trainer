@@ -27,8 +27,8 @@ class check_vocab:
 
     def _save_new_file(self, filename=None):
         if filename is None:
-            filename = 'modified_' + self.voc_path
-        self.raw_data.to_csv(filename, sep=',')
+            filename = self.voc_path
+        self.raw_data.to_csv(filename, sep=',', index=False)
 
     def _set_id(self):
         self.raw_data['id'] = self.raw_data.index
